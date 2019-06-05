@@ -1,2 +1,5 @@
 # WCSS-backend
-Web Courses Selling System
+the backend of Web Courses Selling System.
+
+Technology:
+    JAVA+Spring+Mysql.
