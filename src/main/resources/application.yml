@@ -1,0 +1,29 @@
+spring:
+  application:
+    #  必须和gitlab上配置文件的name一样，如gitlab上的配置文件为configclient-dev.yml
+    name: wscc-backend
+  servlet:
+    multipart:
+      max-file-size: 104857600
+      max-request-size: 209715200
+      enabled: true
+      file-size-threshold: 0
+  datasource:
+    driverClassName: "com.mysql.jdbc.Driver"
+    url: "jdbc:mysql://localhost:3306/wscc_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC"
+    username: "root"
+    password: "admin"
+
+server:
+  port: 8889
+
+mybatis:
+  config-location: [
+    "classpath*:mybatis/mybatis-config.xml"
+  ]
+  type-aliases-package: czd.wcssbackend.common.model,czd.wcssbackend.persistence.handler
+  type-handlers-package: czd.wcssbackend.persistence.handler
+
+  mapper-locations: [
+    "classpath*:mybatis/mapper/*.xml"
+  ]
