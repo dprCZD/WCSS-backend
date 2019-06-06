@@ -16,11 +16,15 @@
         insert into user (
         user_name,
         password,
-        user_identity
+        user_identity,
+        email,
+        phone_num
         ) values (
         #{user.name},
         #{user.password},
-        #{user.identity}
+        #{user.identity},
+        #{user.email},
+        #{user.phoneNum}
         )
     </insert>
 
@@ -29,5 +33,7 @@
         <result property="name" column="user_name"/>
         <result property="password" column="password"/>
         <result property="identity" column="user_identity"/>
+        <result property="email" column="email"/>
+        <result property="phoneNum" column="phone_num"/>
     </resultMap>
 </mapper>
