@@ -18,6 +18,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByName(String userName) {
+        return mapper.getUserByName(userName);
+    }
+
+    @Override
+    public User getUserByPhone(String phoneNum) {
+        return mapper.getUserByPhone(phoneNum);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return mapper.getUserByEmail(email);
+    }
+
+    @Override
     public List<User> listUsers() {
         return mapper.listUsers();
     }

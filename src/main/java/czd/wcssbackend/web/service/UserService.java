@@ -9,6 +9,12 @@ import java.util.List;
 public interface UserService {
      User getUser(int id);
 
+     User getUserByName(String userName);
+
+     User getUserByPhone(String phoneNum);
+
+     User getUserByEmail(String email);
+
      List<User> listUsers();
 
      void insertUser(User user);

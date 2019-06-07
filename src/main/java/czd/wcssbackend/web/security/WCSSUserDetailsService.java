@@ -21,10 +21,30 @@ public class WCSSUserDetailsService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User userBean=userService.getUser(Integer.valueOf(s));
-        if(userBean==null)
-            throw new UsernameNotFoundException("找不到该账户信息！");
+        User userBean=getLoginUser(s);
 
-        return new org.springframework.security.core.userdetails.User(s,passwordEncoder.encode(userBean.getPassword()), AuthorityUtils.commaSeparatedStringToAuthorityList(userBean.getIdentity()));
+        return new org.springframework.security.core.userdetails.User(String.valueOf(userBean.getId()),passwordEncoder.encode(userBean.getPassword()), AuthorityUtils.commaSeparatedStringToAuthorityList(userBean.getIdentity()));
+    }
+
+    private User getLoginUser(String s)throws UsernameNotFoundException
+    {
+        int id=-1;
+        try{
+            id=Integer.valueOf(s);
+        } catch (NumberFormatException e)
+        {
+
+        }
+        User userBean=null;
+        if(id!=-1)
+            userBean=userService.getUser(Integer.valueOf(s));
+        if(userBean==null)
+        {
+            if((userBean=userService.getUserByName(s))==null)
+                if((userBean=userService.getUserByPhone(s))==null)
+                    if((userBean=userService.getUserByEmail(s))==null)
+                        throw new UsernameNotFoundException("找不到该账户信息！");
+        }
+        return userBean;
     }
 }

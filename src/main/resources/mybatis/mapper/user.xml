@@ -8,6 +8,24 @@
         where id = #{id};
     </select>
 
+    <select id="getUserByName" parameterType="String"
+            resultMap="UserMap">
+        select * from user
+        where user_name = #{userName};
+    </select>
+
+    <select id="getUserByPhone" parameterType="String"
+            resultMap="UserMap">
+        select * from user
+        where phone_num = #{phoneNum};
+    </select>
+
+    <select id="getUserByEmail" parameterType="String"
+            resultMap="UserMap">
+        select * from user
+        where email = #{email};
+    </select>
+
     <select id="listUsers" resultMap="UserMap">
         select * from user;
     </select>

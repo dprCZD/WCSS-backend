@@ -10,6 +10,12 @@ import java.util.List;
 public interface UserMapper {
     User getUser(@Param("id")int id);
 
+    User getUserByName(@Param("userName")String userName);
+
+    User getUserByPhone(@Param("phoneNum")String phoneNum);
+
+    User getUserByEmail(@Param("email")String email);
+
     List<User> listUsers();
 
     void insertUser(@Param("user")User user);

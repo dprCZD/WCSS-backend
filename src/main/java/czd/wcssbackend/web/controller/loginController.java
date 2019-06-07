@@ -1,15 +1,14 @@
-package czd.wcssbackend.web.login;
+package czd.wcssbackend.web.controller;
 
 import czd.wcssbackend.common.model.User;
 import czd.wcssbackend.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-//登陆模块控制器
+//测试用
 @Controller
 public class loginController {
-    @Autowired
-    UserService service;
+
 
     @RequestMapping("/index")
     public String index(){
@@ -26,14 +25,5 @@ public class loginController {
         return "registor";
     }
 
-    @RequestMapping("/doRegister")
-    public String doRegister(String username,String password){
-        User user=new User();
-        user.setName(username);
-        user.setPassword(password);
-        user.setIdentity("user");
-        user.setEmail("9395");
-        service.insertUser(user);
-        return user==null?"forward:/register":"forward:index";
-    }
+
 }
