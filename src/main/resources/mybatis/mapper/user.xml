@@ -26,6 +26,7 @@
         where email = #{email};
     </select>
 
+
     <select id="listUsers" resultMap="UserMap">
         select * from user;
     </select>

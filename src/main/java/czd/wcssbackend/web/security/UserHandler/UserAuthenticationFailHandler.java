@@ -27,7 +27,7 @@ public class UserAuthenticationFailHandler implements AuthenticationFailureHandl
         log.info("exception message" + exception.getMessage());
         Map<String, Object> map = new HashMap<>();
         MessageBox message=new MessageBox();
-        message.setStatus(-1);
+        message.setStatus(MessageBox.LOGIN_FAILURE_CODE);
         message.setMessage("Load Failure");
         map.put("message",message);
         map.put("data",exception.getMessage());

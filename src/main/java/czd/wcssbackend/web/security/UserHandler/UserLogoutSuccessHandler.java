@@ -26,14 +26,24 @@ public class UserLogoutSuccessHandler implements LogoutSuccessHandler {
         if(authentication!=null) {
             log.info("登出成功");
             log.info("exception message" + authentication.getName());
-
+            Map<String, Object> map = new HashMap<>();
+            MessageBox message = new MessageBox();
+            message.setStatus(MessageBox.LOGOUT_SUCCESS_CODE);
+            message.setMessage("LOGOUT SUCCESS");
+            map.put("message", message);
+            response.setContentType("application/json;charset=UTF-8");
+            try {
+                response.getWriter().write(objectMapper.writeValueAsString(map));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else
         {
             log.info("登出异常：未登录");
             Map<String, Object> map = new HashMap<>();
             MessageBox message = new MessageBox();
-            message.setStatus(1001);
+            message.setStatus(MessageBox.LOGOUT_ERROR_CODE);
             message.setMessage("Need Login");
             map.put("message", message);
             response.setContentType("application/json;charset=UTF-8");

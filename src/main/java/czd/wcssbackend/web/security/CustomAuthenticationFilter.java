@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.util.Map;
 
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         if (request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE)

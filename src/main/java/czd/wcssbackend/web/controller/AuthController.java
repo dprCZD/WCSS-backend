@@ -47,7 +47,7 @@ public class AuthController {
         Boolean isPhone=service.getUserByPhone(config.getPhoneNum())==null;
         if(!(isEmail&&isName&&isPhone))
         {
-            message.setStatus(-1);
+            message.setStatus(MessageBox.REGISTER_FAILURE_CODE);
             message.setMessage("注册失败:用户数据已存在。"
                     +(isName?" ":"昵称:"+config.getName())
                     +(isEmail?" ":"邮箱:"+config.getEmail())
@@ -56,7 +56,7 @@ public class AuthController {
             return message;
         }
         service.insertUser(user);
-        message.setStatus(1);
+        message.setStatus(MessageBox.REGISTER_SUCCESS_CODE);
         message.setMessage("注册成功!用户名:"+config.getEmail());
         logger.info(message.getMessage());
         return message;
@@ -76,7 +76,7 @@ public class AuthController {
 
         // 如果是需要返回json数据，则返回需要登录的信息提示
         Map<String, Object> map = new HashMap<>();
-        map.put("code", 1001);
+        map.put("code", MessageBox.NOT_LOGIN_CODE);
         map.put("msg", "Need Login");
         return map;
     }

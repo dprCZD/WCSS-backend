@@ -34,7 +34,7 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
         log.info("username=>" + authentication.getName());
         Map<String, Object> map = new HashMap<>();
         MessageBox message=new MessageBox();
-        message.setStatus(1);
+        message.setStatus(MessageBox.LOGIN_SUCCESS_CODE);
         message.setMessage("Load Success");
         map.put("message",message);
         User user=userService.getUser(Integer.valueOf(authentication.getName()));
