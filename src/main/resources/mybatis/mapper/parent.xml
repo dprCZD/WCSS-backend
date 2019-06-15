@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.ParentMapper">
+
+    <select id="getParentByParId" parameterType="int"
+            resultMap="ParentMap">
+        select * from parents
+        where par_id = #{parId};
+    </select>
+
+    <select id="getParentByUserId" parameterType="int"
+            resultMap="ParentMap">
+        select * from parents
+        where usr_id = #{userId};
+    </select>
+
+    <select id="listParents" resultMap="ParentMap">
+        select * from parents;
+    </select>
+
+    <update id="updateParentByParId" parameterType="Parent">
+        update parents
+        <set>
+            par_name=#{parent.parName},
+            par_tel=#{parent.parTel},
+        </set>
+        where par_id=#{parent.parId}
+    </update>
+
+
+    <insert id="insertParent" parameterType="Parent" useGeneratedKeys="true" keyProperty="parent.parId">
+        insert into parents (
+        usr_id,
+        par_name,
+        par_tel
+        ) values (
+        #{parent.userId},
+        #{parent.parName},
+        #{parent.parTel}
+        )
+    </insert>
+
+    <resultMap id="ParentMap" type="Parent">
+        <id property="parId" column="par_id"/>
+        <result property="parName" column="par_name"/>
+        <result property="userId" column="usr_id"/>
+        <result property="parTel" column="par_tel"/>
+    </resultMap>
+</mapper>

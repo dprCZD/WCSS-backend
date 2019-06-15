@@ -5,19 +5,11 @@
     <title>登陆</title>
 </head>
 <body>
-<h1>??</h1>
-<form action="/api/v1/login" method="post">
-    <table>
-        <tr>
-            <td>用户名:</td>
-            <td><input name="username" type="text" /></td>
-        </tr>
-        <tr>
-            <td>密码:</td>
-            <td><input name="password" type="password" /></td>
-        </tr>
-    </table>
-    <button type="submit">??</button>
-</form>
+
+<h3>文件下载</h3> -->
+<a
+        href="download?filename=${requestScope.user.headimage.originalFilename}">
+    用户头像：${requestScope.user.headimage.originalFilename}
+</a>
 </body>
 </html>

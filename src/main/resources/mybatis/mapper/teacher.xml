@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.TeacherMapper">
+
+    <select id="getTeacherByTeachId" parameterType="int"
+            resultMap="TeacherMap">
+        select * from teacher
+        where teach_id = #{teachId};
+    </select>
+
+    <select id="getTeacherByUserId" parameterType="int"
+            resultMap="TeacherMap">
+        select * from teacher
+        where usr_id = #{userId};
+    </select>
+
+    <select id="listTeachers" resultMap="TeacherMap">
+        select * from teacher;
+    </select>
+
+    <update id="updateTeacherByTeachId" parameterType="Teacher">
+        update teacher
+        <set>
+            teach_name=#{teacher.teachName},
+            teach_gender=#{teacher.teachGender},
+            teach_subject=#{teacher.teachSubject},
+            teach_years=#{teacher.teachYears},
+            teach_fit_age=#{teacher.teachFitAge},
+            teach_id_number=#{teacher.teachIdNumber},
+            teach_tel=#{teacher.teachTel},
+            teach_introduction=#{teacher.teachIntroduction}
+        </set>
+        where teach_id=#{teacher.teachId}
+    </update>
+
+
+    <insert id="insertTeacher" parameterType="Teacher" useGeneratedKeys="true" keyProperty="teacher.teachId">
+        insert into teacher (
+            usr_id,
+            teach_name,
+            teach_gender,
+            teach_subject,
+            teach_years,
+            teach_fit_age,
+            teach_id_number,
+            teach_tel,
+            teach_introduction
+        ) values (
+            #{teacher.userId},
+            #{teacher.teachName},
+            #{teacher.teachGender},
+            #{teacher.teachSubject},
+            #{teacher.teachYears},
+            #{teacher.teachFitAge},
+            #{teacher.teachIdNumber},
+            #{teacher.teachTel},
+            #{teacher.teachIntroduction}
+        )
+    </insert>
+
+    <resultMap id="TeacherMap" type="Teacher">
+        <id property="teachId" column="teach_id"/>
+        <result property="teachName" column="teach_name"/>
+        <result property="userId" column="usr_id"/>
+        <result property="teachGender" column=" teach_gender"/>
+        <result property="teachSubject" column="teach_subject"/>
+        <result property="teachYears" column="teach_years"/>
+        <result property="teachFitAge" column="teach_fit_age"/>
+        <result property="teachIdNumber" column="teach_id_number"/>
+        <result property="teachTel" column="teach_tel"/>
+        <result property="teachIntroduction" column="teach_introduction"/>
+    </resultMap>
+</mapper>

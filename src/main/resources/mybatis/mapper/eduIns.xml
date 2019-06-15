@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.EduInsMapper">
+
+    <select id="getEduInsByEduId" parameterType="int"
+            resultMap="EduInsMap">
+        select * from education_institution
+        where edu_id = #{eduId};
+    </select>
+
+    <select id="getEduInsByUserId" parameterType="int"
+            resultMap="EduInsMap">
+        select * from education_institution
+        where usr_id = #{userId};
+    </select>
+
+    <select id="listEduInss" resultMap="EduInsMap">
+        select * from education_institution;
+    </select>
+
+    <update id="updateEduInsByEduId" parameterType="EduIns">
+        update education_institution
+        <set>
+            edu_id_number=#{eduIns.eduIdNumber},
+            edu_name=#{eduIns.eduName},
+            edu_field=#{eduIns.eduField},
+            edu_location=#{eduIns.eduLocation},
+            edu_fit_age=#{eduIns.eduFitAge},
+            edu_tel=#{eduIns.eduTel},
+            edu_introduction=#{eduIns.eduIntroduction}
+        </set>
+        where edu_id=#{eduIns.eduId}
+    </update>
+
+
+    <insert id="insertEduIns" parameterType="EduIns" useGeneratedKeys="true" keyProperty="eduIns.eduId">
+        insert into education_institution (
+            usr_id,
+            edu_id_number,
+            edu_name,
+            edu_field,
+            edu_location,
+            edu_fit_age,
+            edu_tel,
+            edu_introduction
+        ) values (
+            #{eduIns.userId},
+            #{eduIns.eduIdNumber},
+            #{eduIns.eduName},
+            #{eduIns.eduField},
+            #{eduIns.eduLocation},
+            #{eduIns.eduFitAge},
+            #{eduIns.eduTel},
+            #{eduIns.eduIntroduction}
+        )
+    </insert>
+
+    <resultMap id="EduInsMap" type="EduIns">
+        <id property="eduId" column="edu_id"/>
+        <result property="eduIdNumber" column="edu_id_number"/>
+        <result property="userId" column="usr_id"/>
+        <result property="eduName" column=" edu_name"/>
+        <result property="eduField" column="edu_field"/>
+        <result property="eduLocation" column="edu_location"/>
+        <result property="eduFitAge" column="edu_fit_age"/>
+        <result property="eduTel" column="edu_tel"/>
+        <result property="eduIntroduction" column="edu_introduction"/>
+    </resultMap>
+</mapper>

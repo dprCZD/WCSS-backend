@@ -33,12 +33,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void updateUser(User user)throws Exception {
+        mapper.updateUser(user);
+    }
+
+    @Override
     public List<User> listUsers() {
         return mapper.listUsers();
     }
 
     @Override
-    public void insertUser(User user) {
+    public void insertUser(User user) throws Exception{
         mapper.insertUser(user);
+    }
+
+    @Override
+    public void deleteUser(int id)throws Exception {
+        mapper.deleteUser(id);
     }
 }

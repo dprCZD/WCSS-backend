@@ -31,6 +31,17 @@
         select * from user;
     </select>
 
+    <update id="updateUser" parameterType="User">
+        update user
+        <set>
+            user_name=#{user.name},
+            password=#{user.password},
+            phone_num=#{user.phoneNum},
+            email=#{user.email},
+            user_identity=#{user.identity}
+        </set>
+        where id=#{user.id}
+    </update>
     <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="user.id">
         insert into user (
         user_name,
@@ -47,6 +58,10 @@
         )
     </insert>
 
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM user
+        WHERE id=#{id}
+    </delete>
     <resultMap id="UserMap" type="User">
         <id property="id" column="id"/>
         <result property="name" column="user_name"/>

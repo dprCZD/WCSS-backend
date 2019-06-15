@@ -52,10 +52,20 @@ public class AuthController {
                     +(isName?" ":"昵称:"+config.getName())
                     +(isEmail?" ":"邮箱:"+config.getEmail())
                     +(isPhone?" ":"手机号:"+config.getPhoneNum()));
-            logger.info(message.getMessage());
+            logger.error(message.getMessage());
             return message;
         }
-        service.insertUser(user);
+        try{
+            service.insertUser(user);
+        }
+        catch (Exception e)
+        {
+            message.setStatus(MessageBox.REGISTER_FAILURE_CODE);
+            message.setMessage(e.getMessage());
+            logger.error(message.getMessage());
+            return message;
+        }
+
         message.setStatus(MessageBox.REGISTER_SUCCESS_CODE);
         message.setMessage("注册成功!用户名:"+config.getEmail());
         logger.info(message.getMessage());

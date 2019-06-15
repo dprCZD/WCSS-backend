@@ -30,3 +30,6 @@ mybatis:
   mapper-locations: [
     "classpath*:mybatis/mapper/*.xml"
   ]
+
+resources:
+  baseDir: "F:/编译文件/WCSS-backend/src/main/resources/userResources/"

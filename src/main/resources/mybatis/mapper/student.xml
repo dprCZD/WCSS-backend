@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.StudentMapper">
+
+    <select id="getStudentByStuId" parameterType="int"
+            resultMap="StudentMap">
+        select * from student
+        where stu_id = #{stuId};
+    </select>
+
+    <select id="getStudentByUserId" parameterType="int"
+            resultMap="StudentMap">
+        select * from student
+        where usr_id = #{userId};
+    </select>
+
+    <select id="listStudents" resultMap="StudentMap">
+        select * from student;
+    </select>
+
+    <update id="updateStudentByStuId" parameterType="Student">
+        update student
+        <set>
+            stu_name=#{student.stuName},
+            stu_born_date=#{student.stuBornDate},
+            stu_gender=#{student.stuSex},
+            stu_select_course=#{student.stuSelectCourse},
+            stu_course_direct=#{student.stuCourseDirect},
+            stu_lowest_price=#{student.stuLowPrice},
+            stu_highest_price=#{student.stuHighPrice},
+            stu_location=#{student.stuLocation}
+        </set>
+        where stu_id=#{student.stuId}
+    </update>
+
+
+    <insert id="insertStudent" parameterType="Student" useGeneratedKeys="true" keyProperty="student.stuId">
+        insert into student (
+            usr_id,
+            stu_name,
+            stu_born_date,
+            stu_gender,
+            stu_select_course,
+            stu_course_direct,
+            stu_lowest_price,
+            stu_highest_price,
+            stu_location
+        ) values (
+            #{student.userId},
+            #{student.stuName},
+            #{student.stuBornDate},
+            #{student.stuSex},
+            #{student.stuSelectCourse},
+            #{student.stuCourseDirect},
+            #{student.stuLowPrice},
+            #{student.stuHighPrice},
+            #{student.stuLocation}
+        )
+    </insert>
+
+    <resultMap id="StudentMap" type="Student">
+        <id property="stuId" column="stu_id"/>
+        <result property="stuName" column="stu_name"/>
+        <result property="userId" column="usr_id"/>
+        <result property="stuBornDate" column="stu_born_date"/>
+        <result property="stuSex" column="stu_gender"/>
+        <result property="stuSelectCourse" column="stu_select_course"/>
+        <result property="stuCourseDirect" column="stu_course_direct"/>
+        <result property="stuLowPrice" column="stu_lowest_price"/>
+        <result property="stuHighPrice" column="stu_highest_price"/>
+        <result property="stuLocation" column="stu_location"/>
+    </resultMap>
+</mapper>

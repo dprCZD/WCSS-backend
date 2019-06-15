@@ -18,7 +18,11 @@ public interface UserMapper {
 
     List<User> listUsers();
 
+    void updateUser(@Param("user")User user);
+
     void insertUser(@Param("user")User user);
+
+    void deleteUser(@Param("id")int id);
 
 
 
