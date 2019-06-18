@@ -1,11 +1,8 @@
 package czd.wcssbackend.web.controller;
 
-import czd.wcssbackend.common.model.Parent;
-import czd.wcssbackend.common.model.Student;
+import czd.wcssbackend.common.model.userType.Student;
 import czd.wcssbackend.web.controller.pojo.MessageBox;
-import czd.wcssbackend.web.controller.pojo.ParentCreateConfig;
 import czd.wcssbackend.web.controller.pojo.StudentCreateConfig;
-import czd.wcssbackend.web.service.ParentService;
 import czd.wcssbackend.web.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -147,7 +144,6 @@ public class StudentController {
     {
         Student student =new Student();
         student.setStuBornDate(config.getStuBornDate());
-        student.setStuCourseDirect(config.getStuCourseDirect());
         student.setStuHighPrice(config.getStuHighPrice());
         student.setStuLocation(config.getStuLocation());
         student.setStuLowPrice(config.getStuLowPrice());

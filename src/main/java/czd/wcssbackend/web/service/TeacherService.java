@@ -1,7 +1,6 @@
 package czd.wcssbackend.web.service;
 
-import czd.wcssbackend.common.model.Parent;
-import czd.wcssbackend.common.model.Teacher;
+import czd.wcssbackend.common.model.userType.Teacher;
 
 import java.util.List;
 

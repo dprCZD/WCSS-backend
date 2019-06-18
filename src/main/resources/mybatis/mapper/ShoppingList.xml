@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.ShoppingListMapper">
+
+    <select id="getShoppingList" parameterType="int"
+            resultMap="ShoppingListMap">
+        select * from shopping_list
+        where shop_id = #{shopId};
+    </select>
+
+    <select id="listShoppingLists" parameterType="int"
+            resultMap="ShoppingListMap">
+        select * from shopping_list
+    </select>
+
+    <select id="listShoppingListsByParId" resultMap="ShoppingListMap">
+        select * from shopping_list
+        where par_id=#{parId}
+    </select>
+
+    <delete id="deleteShoppingList" parameterType="int">
+        delete from shopping_list
+        where shop_id=#{shopId}
+    </delete>
+
+
+    <update id="updateShoppingList" parameterType="ShoppingList">
+        update shopping_list
+        <set>
+            course_id=#{shoppingList.courseId},
+            par_id=#{shoppingList.parId},
+            shop_num=#{shoppingList.shopNum}
+        </set>
+        where shop_id=#{shoppingList.shopId}
+    </update>
+
+
+    <insert id="insertShoppingList" parameterType="ShoppingList" useGeneratedKeys="true" keyProperty="shoppingList.shopId">
+        insert into shopping_list (
+            course_id,
+            par_id,
+            shop_num
+        ) values (
+            #{shoppingList.courseId},
+            #{shoppingList.parId},
+            #{shoppingList.shopNum}
+        )
+    </insert>
+
+    <resultMap id="ShoppingListMap" type="ShoppingList">
+        <id property="shopId" column="shop_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="parId" column="par_id"/>
+        <result property="shopNum" column="shop_num"/>
+    </resultMap>
+</mapper>

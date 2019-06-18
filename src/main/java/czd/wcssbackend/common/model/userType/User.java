@@ -1,4 +1,4 @@
-package czd.wcssbackend.common.model;
+package czd.wcssbackend.common.model.userType;
 
 public class User {
     private int id;

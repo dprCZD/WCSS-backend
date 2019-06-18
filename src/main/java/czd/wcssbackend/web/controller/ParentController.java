@@ -1,6 +1,6 @@
 package czd.wcssbackend.web.controller;
 
-import czd.wcssbackend.common.model.Parent;
+import czd.wcssbackend.common.model.userType.Parent;
 import czd.wcssbackend.web.controller.pojo.MessageBox;
 import czd.wcssbackend.web.controller.pojo.ParentCreateConfig;
 import czd.wcssbackend.web.service.ParentService;

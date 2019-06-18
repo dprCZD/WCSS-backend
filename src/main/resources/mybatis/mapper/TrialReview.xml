@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.TrialReviewMapper">
+
+    <select id="getTrialReview" parameterType="int"
+            resultMap="TrialReviewMap">
+        select * from trial_review
+        where review_id = #{reviewId};
+    </select>
+
+    <select id="listTrialReviews" parameterType="int"
+            resultMap="TrialReviewMap">
+        select * from trial_review
+    </select>
+
+    <select id="listTrialReviewsByParId" resultMap="TrialReviewMap">
+        select * from trial_review
+        where par_id=#{parId}
+    </select>
+
+    <select id="listTrialReviewsByCourseId" resultMap="TrialReviewMap">
+        select * from trial_review
+        where course_id=#{courseId}
+    </select>
+
+    <delete id="deleteTrialReview" parameterType="int">
+        delete from trial_review
+        where review_id=#{reviewId}
+    </delete>
+
+
+    <update id="updateTrialReview" parameterType="TrialReview">
+        update trial_review
+        <set>
+            course_id=#{trialReview.courseId},
+            par_id=#{trialReview.parId},
+            trial_id=#{trialReview.trialId},
+            review_course=#{trialReview.reviewCourse},
+            review_teacher=#{trialReview.reviewTeacher},
+            review_pic=#{trialReview.reviewPic},
+            review_words=#{trialReview.reviewWords},
+            review_stars=#{trialReview.reviewStars}
+
+        </set>
+        where review_id=#{trialReview.reviewId}
+    </update>
+
+
+    <insert id="insertTrialReview" parameterType="TrialReview" useGeneratedKeys="true" keyProperty="trialReview.reviewId">
+        insert into trial_review (
+            course_id,
+            par_id,
+            trial_id,
+            review_course,
+            review_teacher,
+            review_pic,
+            review_words,
+            review_stars
+        ) values (
+            #{trialReview.courseId},
+            #{trialReview.parId},
+            #{trialReview.trialId},
+            #{trialReview.reviewCourse},
+            #{trialReview.reviewTeacher},
+            #{trialReview.reviewPic},
+            #{trialReview.reviewWords},
+            #{trialReview.reviewStars}
+        )
+    </insert>
+
+    <resultMap id="TrialReviewMap" type="TrialReview">
+        <id property="reviewId" column="review_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="parId" column="par_id"/>
+        <result property="trialId" column="trial_id"/>
+        <result property="reviewCourse" column="review_course"/>
+        <result property="reviewTeacher" column="review_teacher"/>
+        <result property="reviewPic" column="review_pic"/>
+        <result property="reviewWords" column="review_words"/>
+        <result property="reviewStars" column="review_stars"/>
+
+    </resultMap>
+</mapper>

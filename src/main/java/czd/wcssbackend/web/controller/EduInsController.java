@@ -1,6 +1,6 @@
 package czd.wcssbackend.web.controller;
 
-import czd.wcssbackend.common.model.EduIns;
+import czd.wcssbackend.common.model.userType.EduIns;
 
 import czd.wcssbackend.web.controller.pojo.EduInsCreateConfig;
 import czd.wcssbackend.web.controller.pojo.MessageBox;

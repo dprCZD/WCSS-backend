@@ -1,6 +1,6 @@
 package czd.wcssbackend.web.impl;
 
-import czd.wcssbackend.common.model.Teacher;
+import czd.wcssbackend.common.model.userType.Teacher;
 import czd.wcssbackend.persistence.mapper.TeacherMapper;
 import czd.wcssbackend.web.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;

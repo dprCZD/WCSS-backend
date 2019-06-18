@@ -1,7 +1,7 @@
 package czd.wcssbackend.web.security.UserHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import czd.wcssbackend.common.model.User;
+import czd.wcssbackend.common.model.userType.User;
 import czd.wcssbackend.web.controller.pojo.MessageBox;
 import czd.wcssbackend.web.service.UserService;
 import org.slf4j.Logger;

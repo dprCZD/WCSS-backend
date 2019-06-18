@@ -1,7 +1,6 @@
 package czd.wcssbackend.web.service;
 
-import czd.wcssbackend.common.model.User;
-import org.springframework.stereotype.Service;
+import czd.wcssbackend.common.model.userType.User;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package czd.wcssbackend.web.impl;
 
 
-import czd.wcssbackend.common.model.EduIns;
+import czd.wcssbackend.common.model.userType.EduIns;
 import czd.wcssbackend.persistence.mapper.EduInsMapper;
 import czd.wcssbackend.web.service.EduInsService;
 import org.springframework.beans.factory.annotation.Autowired;

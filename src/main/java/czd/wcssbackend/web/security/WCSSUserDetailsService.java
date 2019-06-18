@@ -1,10 +1,9 @@
 package czd.wcssbackend.web.security;
 
-import czd.wcssbackend.common.model.User;
+import czd.wcssbackend.common.model.userType.User;
 import czd.wcssbackend.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

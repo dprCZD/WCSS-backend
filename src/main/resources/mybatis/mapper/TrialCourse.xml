@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.TrialCourseMapper">
+
+    <select id="getTrialCourse" parameterType="int"
+            resultMap="TrialCourseMap">
+        select * from trial_class
+        where trial_id = #{trialId};
+    </select>
+
+    <select id="listTrialCourses" parameterType="int"
+            resultMap="TrialCourseMap">
+        select * from trial_class
+    </select>
+
+    <select id="listTrialCoursesByCourseId" resultMap="TrialCourseMap">
+        select * from trial_class
+        where course_id=#{courseId}
+    </select>
+
+    <select id="listTrialCoursesByParId" resultMap="TrialCourseMap">
+        select * from trial_class
+        where par_id=#{parId}
+    </select>
+
+
+
+    <update id="updateTrialCourse" parameterType="TrialCourse">
+        update trial_class
+        <set>
+            course_id=#{trialCourse.courseId},
+            par_id=#{trialCourse.parId},
+            trial_check=#{trialCourse.trialCheck},
+            trial_time=#{trialCourse.trialTime}
+        </set>
+        where trial_id=#{trialCourse.trialId}
+    </update>
+
+
+    <insert id="insertTrialCourse" parameterType="TrialCourse" useGeneratedKeys="true" keyProperty="trialCourse.trialId">
+        insert into trial_class (
+            course_id,
+            par_id,
+            trial_check,
+            trial_time
+        ) values (
+            #{trialCourse.courseId},
+            #{trialCourse.parId},
+            #{trialCourse.trialCheck},
+            #{trialCourse.trialTime}
+        )
+    </insert>
+
+    <resultMap id="TrialCourseMap" type="TrialCourse">
+        <id property="trialId" column="trial_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="parId" column="par_id"/>
+        <result property="trialCheck" column="trial_check"/>
+        <result property="trialTime" column="trial_time"/>
+    </resultMap>
+</mapper>

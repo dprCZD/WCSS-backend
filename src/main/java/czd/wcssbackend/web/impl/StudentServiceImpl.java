@@ -1,10 +1,7 @@
 package czd.wcssbackend.web.impl;
 
-import czd.wcssbackend.common.model.Parent;
-import czd.wcssbackend.common.model.Student;
-import czd.wcssbackend.persistence.mapper.ParentMapper;
+import czd.wcssbackend.common.model.userType.Student;
 import czd.wcssbackend.persistence.mapper.StudentMapper;
-import czd.wcssbackend.web.service.ParentService;
 import czd.wcssbackend.web.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 

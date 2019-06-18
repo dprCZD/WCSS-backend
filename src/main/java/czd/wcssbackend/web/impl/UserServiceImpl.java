@@ -1,6 +1,6 @@
 package czd.wcssbackend.web.impl;
 
-import czd.wcssbackend.common.model.User;
+import czd.wcssbackend.common.model.userType.User;
 import czd.wcssbackend.persistence.mapper.UserMapper;
 import czd.wcssbackend.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

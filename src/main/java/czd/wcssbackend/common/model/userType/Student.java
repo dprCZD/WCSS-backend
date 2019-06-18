@@ -1,4 +1,4 @@
-package czd.wcssbackend.common.model;
+package czd.wcssbackend.common.model.userType;
 
 import java.util.Date;
 
@@ -18,7 +18,6 @@ public class Student {
 
     private String  stuSex;
 
-    private String  stuCourseDirect;
 
     private Date stuBornDate;
 
@@ -62,13 +61,6 @@ public class Student {
         this.stuSex = stuSex;
     }
 
-    public String getStuCourseDirect() {
-        return stuCourseDirect;
-    }
-
-    public void setStuCourseDirect(String stuCourseDirect) {
-        this.stuCourseDirect = stuCourseDirect;
-    }
 
     public Date getStuBornDate() {
         return stuBornDate;

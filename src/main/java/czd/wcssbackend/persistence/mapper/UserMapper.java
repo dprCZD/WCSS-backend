@@ -1,6 +1,6 @@
 package czd.wcssbackend.persistence.mapper;
 
-import czd.wcssbackend.common.model.User;
+import czd.wcssbackend.common.model.userType.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

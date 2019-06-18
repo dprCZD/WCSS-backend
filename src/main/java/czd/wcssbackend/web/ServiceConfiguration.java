@@ -1,6 +1,9 @@
 package czd.wcssbackend.web;
 
 
+import czd.wcssbackend.common.model.courseType.Course;
+import czd.wcssbackend.common.model.courseType.PaidCourse;
+import czd.wcssbackend.common.model.systemType.TrialReview;
 import czd.wcssbackend.web.impl.*;
 import czd.wcssbackend.web.service.*;
 import org.springframework.context.annotation.Bean;
@@ -23,5 +26,23 @@ public class ServiceConfiguration {
     TeacherService getTeacherService(){return new TeacherServiceImpl(); }
     @Bean
     EduInsService getEduInsService(){return new EduInsServiceImpl(); }
+
+    @Bean
+    CourseService getCourseService(){return  new CourseServiceImpl();}
+
+    @Bean
+    CourseInfoService getCourseInfoService(){return new CourseInfoServiceImpl();}
+
+    @Bean
+    PaidCourseService getPaidCourseService(){return new PaidCourseServiceImpl();}
+
+    @Bean
+    TrialCourseService getTrialCourseService(){return new TrialCourseServiceImpl();}
+
+    @Bean
+    ShoppingListService getShoppingListService(){return new ShoppingListServiceImpl();}
+
+    @Bean
+    TrialReviewService getTrialReviewService(){return new TrialReviewServiceImpl();}
 
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.CourseMapper">
+
+    <select id="getCourse" parameterType="int"
+            resultMap="CourseMap">
+        select * from course
+        where course_id = #{courseId};
+    </select>
+
+    <select id="listCourses" parameterType="int"
+            resultMap="CourseMap">
+        select * from course
+    </select>
+
+    <select id="listCoursesByTeacherName" resultMap="CourseMap">
+        select * from course
+        where teacher_name=#{teacherName}
+    </select>
+
+    <select id="listCoursesByLocation" resultMap="CourseMap">
+        select * from course
+        where course_location=#{location}
+    </select>
+
+    <select id="listCoursesByCourseFitAge" resultMap="CourseMap">
+        select * from course
+        where course_fit_age=#{courseFitAge}
+    </select>
+
+    <select id="listCoursesByCourseDirection" resultMap="CourseMap">
+        select * from course
+        where course_direction=#{courseDirection}
+    </select>
+
+    <update id="updateCourse" parameterType="Course">
+        update course
+        <set>
+            course_name=#{course.courseName},
+            teacher_name=#{course.teacherName},
+            teacher_id=#{course.teacherId},
+            course_time=#{course.courseTime},
+            course_location=#{course.courseLocation},
+            course_fit_age=#{course.courseFitAge},
+            course_price=#{course.coursePrice},
+            course_direction=#{course.courseDirection},
+            course_user_stars=#{course.courseUserStars}
+        </set>
+        where course_id=#{course.courseId}
+    </update>
+
+
+    <insert id="insertCourse" parameterType="Course" useGeneratedKeys="true" keyProperty="course.courseId">
+        insert into course (
+            course_name,
+            teacher_name,
+            teacher_id,
+            course_time,
+            course_location,
+            course_fit_age,
+            course_price,
+            course_direction,
+            course_user_stars
+        ) values (
+            #{course.courseName},
+            #{course.teacherName},
+            #{course.teacherId},
+            #{course.courseTime},
+            #{course.courseLocation},
+            #{course.courseFitAge},
+            #{course.coursePrice},
+            #{course.courseDirection},
+            #{course.courseUserStars}
+        )
+    </insert>
+
+    <resultMap id="CourseMap" type="Course">
+        <id property="courseId" column="course_id"/>
+        <result property="courseName" column="course_name"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="courseTime" column="course_time"/>
+        <result property="courseLocation" column="course_location"/>
+        <result property="courseFitAge" column="course_fit_age"/>
+        <result property="coursePrice" column="course_price"/>
+        <result property="courseDirection" column="course_direction"/>
+        <result property="courseUserStars" column="course_user_stars"/>
+    </resultMap>
+</mapper>

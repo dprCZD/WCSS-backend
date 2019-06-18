@@ -1,8 +1,7 @@
 package czd.wcssbackend.web.controller;
 
-import czd.wcssbackend.common.model.User;
+import czd.wcssbackend.common.model.userType.User;
 import czd.wcssbackend.web.controller.pojo.MessageBox;
-import czd.wcssbackend.web.controller.pojo.UserRegisterConfig;
 import czd.wcssbackend.web.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 /**

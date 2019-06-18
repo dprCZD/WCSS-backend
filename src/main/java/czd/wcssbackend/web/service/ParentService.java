@@ -1,6 +1,6 @@
 package czd.wcssbackend.web.service;
 
-import czd.wcssbackend.common.model.Parent;
+import czd.wcssbackend.common.model.userType.Parent;
 
 import java.util.List;
 

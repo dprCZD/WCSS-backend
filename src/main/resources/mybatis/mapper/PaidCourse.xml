@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.PaidCourseMapper">
+
+    <select id="getPaidCourse" parameterType="int"
+            resultMap="PaidCourseMap">
+        select * from paid_course
+        where paid_id = #{paidId};
+    </select>
+
+    <select id="listPaidCourses" parameterType="int"
+            resultMap="PaidCourseMap">
+        select * from paid_course
+    </select>
+
+    <select id="listPaidCoursesByCourseId" resultMap="PaidCourseMap">
+        select * from paid_course
+        where course_id=#{courseId}
+    </select>
+
+    <select id="listPaidCoursesByParId" resultMap="PaidCourseMap">
+        select * from paid_course
+        where par_id=#{parId}
+    </select>
+
+
+
+    <update id="updatePaidCourse" parameterType="PaidCourse">
+        update paid_course
+        <set>
+            course_id=#{paidCourse.courseId},
+            par_id=#{paidCourse.parId},
+            paid_number=#{paidCourse.paidNum},
+            paid_expense=#{paidCourse.paidExpense},
+            paid_time=#{paidCourse.paidTime}
+        </set>
+        where paid_id=#{paidCourse.paidId}
+    </update>
+
+
+    <insert id="insertPaidCourse" parameterType="PaidCourse" useGeneratedKeys="true" keyProperty="paidCourse.paidId">
+        insert into paid_course (
+            course_id,
+            par_id,
+            paid_number,
+            paid_expense,
+            paid_time
+        ) values (
+            #{paidCourse.courseId},
+            #{paidCourse.parId},
+            #{paidCourse.paidNum},
+            #{paidCourse.paidExpense},
+            #{paidCourse.paidTime}
+        )
+    </insert>
+
+    <resultMap id="PaidCourseMap" type="PaidCourse">
+        <id property="paidId" column="paid_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="parId" column="par_id"/>
+        <result property="paidNum" column="paid_number"/>
+        <result property="paidExpense" column="paid_expense"/>
+        <result property="paidTime" column="paid_time"/>
+    </resultMap>
+</mapper>

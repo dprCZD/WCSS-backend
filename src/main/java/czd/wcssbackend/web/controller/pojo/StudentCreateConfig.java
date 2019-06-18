@@ -16,7 +16,6 @@ public class StudentCreateConfig {
 
     private String  stuSex;
 
-    private String  stuCourseDirect;
 
     private Date stuBornDate;
 
@@ -52,13 +51,6 @@ public class StudentCreateConfig {
         this.stuSex = stuSex;
     }
 
-    public String getStuCourseDirect() {
-        return stuCourseDirect;
-    }
-
-    public void setStuCourseDirect(String stuCourseDirect) {
-        this.stuCourseDirect = stuCourseDirect;
-    }
 
     public Date getStuBornDate() {
         return stuBornDate;

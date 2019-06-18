@@ -1,11 +1,10 @@
 package czd.wcssbackend;
 
-import czd.wcssbackend.common.model.User;
+import czd.wcssbackend.common.model.userType.User;
 import czd.wcssbackend.web.service.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
