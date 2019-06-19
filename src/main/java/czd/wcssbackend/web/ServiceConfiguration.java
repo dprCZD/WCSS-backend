@@ -45,4 +45,10 @@ public class ServiceConfiguration {
     @Bean
     TrialReviewService getTrialReviewService(){return new TrialReviewServiceImpl();}
 
+    @Bean
+    NoticeService getNoticeService(){return  new NoticeServiceImpl();}
+
+    @Bean
+    NewsService getNewsService(){return  new NewsServiceImpl();}
+
 }

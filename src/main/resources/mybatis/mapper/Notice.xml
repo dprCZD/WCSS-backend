@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czd.wcssbackend.persistence.mapper.NoticeMapper">
+
+    <select id="getNotice" parameterType="int"
+            resultMap="NoticeMap">
+        select * from notice
+        where notice_id = #{noticeId};
+    </select>
+
+    <select id="listNotices" parameterType="int"
+            resultMap="NoticeMap">
+        select * from notice
+    </select>
+
+    <delete id="deleteNotice" parameterType="int">
+        delete from notice
+        where notice_id=#{noticeId}
+    </delete>
+
+
+    <update id="updateNotice" parameterType="Notice">
+        update notice
+        <set>
+            teacher_id=#{notice.teacherId},
+            notice_pic=#{notice.noticePic},
+            notice_words=#{notice.noticeWords},
+            notice_time=#{notice.noticeTime}
+        </set>
+        where notice_id=#{notice.noticeId}
+    </update>
+
+
+    <insert id="insertNotice" parameterType="Notice" useGeneratedKeys="true" keyProperty="notice.noticeId">
+        insert into notice (
+            teacher_id,
+            notice_pic,
+            notice_words,
+            notice_time
+        ) values (
+            #{notice.teacherId},
+            #{notice.noticePic},
+            #{notice.noticeWords},
+            #{notice.noticeTime}
+        )
+    </insert>
+
+    <resultMap id="NoticeMap" type="Notice">
+        <id property="noticeId" column="notice_id"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="noticePic" column="notice_pic"/>
+        <result property="noticeWords" column="notice_words"/>
+        <result property="noticeTime" column="notice_time"/>
+    </resultMap>
+</mapper>

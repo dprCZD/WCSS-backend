@@ -33,7 +33,7 @@ public class AuthController {
     @Autowired
     UserService service;
 
-
+    //identity: ROLE_teaher,ROLE_edu,ROLE_parent,ROLE_admin
     @ApiOperation(value = "注册服务", notes = "注册服务", produces = "application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "config", value = "UserRegisterConfig", dataType = "UserRegisterConfig", paramType = "body"),

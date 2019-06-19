@@ -93,12 +93,28 @@ public class MessageBox {
     final static public int INSERT_SHOP_FAILURE_CODE=12005;
 
     //TrialReview
-    final static public int UPDATE_REVIEW_SUCCESS_CODE=12000;
-    final static public int UPDATE_REVIEW_FAILURE_CODE=12001;
-    final static public int DELETE_REVIEW_SUCCESS_CODE=12002;
-    final static public int DELETE_REVIEW_FAILURE_CODE=12003;
-    final static public int INSERT_REVIEW_SUCCESS_CODE=12004;
-    final static public int INSERT_REVIEW_FAILURE_CODE=12005;
+    final static public int UPDATE_REVIEW_SUCCESS_CODE=13000;
+    final static public int UPDATE_REVIEW_FAILURE_CODE=13001;
+    final static public int DELETE_REVIEW_SUCCESS_CODE=13002;
+    final static public int DELETE_REVIEW_FAILURE_CODE=13003;
+    final static public int INSERT_REVIEW_SUCCESS_CODE=13004;
+    final static public int INSERT_REVIEW_FAILURE_CODE=13005;
+
+    //notice
+    final static public int UPDATE_NOTICE_SUCCESS_CODE=14000;
+    final static public int UPDATE_NOTICE_FAILURE_CODE=14001;
+    final static public int DELETE_NOTICE_SUCCESS_CODE=14002;
+    final static public int DELETE_NOTICE_FAILURE_CODE=14003;
+    final static public int INSERT_NOTICE_SUCCESS_CODE=14004;
+    final static public int INSERT_NOTICE_FAILURE_CODE=14005;
+
+    //news
+    final static public int UPDATE_NEWS_SUCCESS_CODE=15000;
+    final static public int UPDATE_NEWS_FAILURE_CODE=15001;
+    final static public int DELETE_NEWS_SUCCESS_CODE=15002;
+    final static public int DELETE_NEWS_FAILURE_CODE=15003;
+    final static public int INSERT_NEWS_SUCCESS_CODE=15004;
+    final static public int INSERT_NEWS_FAILURE_CODE=15005;
 
     private int status;
 
